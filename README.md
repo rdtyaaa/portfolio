@@ -18,7 +18,7 @@ Open `http://localhost:8765/web/`.
 
 - `web/`: active HTML, CSS, and JavaScript modules
 - `assets/`: self-contained GLB models used by the website
-- `index.html`: redirects the public root to `web/`
+- `index.html`: renders the portfolio directly at the public root; `<base href="./web/">` preserves the shared module, stylesheet, and model paths
 
 Three.js is pinned in the import map. Fonts and Three.js load from their external providers, so an internet connection is needed.
 

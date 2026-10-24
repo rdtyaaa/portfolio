@@ -1,2 +1,166 @@
 <!doctype html>
-<html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Yoga Raditya · Portfolio</title><meta http-equiv="refresh" content="0;url=./web/"><link rel="canonical" href="./web/"></head><body><p><a href="./web/">Buka portfolio Yoga Raditya</a></p></body></html>
+<html lang="id" data-build="r17">
+<head>
+<meta charset="utf-8">
+<base href="./web/">
+<script>
+  history.scrollRestoration = "manual";
+  const resetScroll = () => scrollTo(0, 0);
+  resetScroll();
+  addEventListener("pageshow", resetScroll);
+  addEventListener("load", resetScroll);
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Yoga Raditya · Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=r17">
+</head>
+<body>
+<canvas id="stage" aria-hidden="true"></canvas>
+<div id="mobile-stage" aria-hidden="true"></div>
+<div class="ambient" aria-hidden="true"><div class="ambient-wash"></div><div class="ambient-grid"></div>
+  <svg class="ambient-sketch" viewBox="0 0 1440 1000" preserveAspectRatio="xMidYMid slice">
+    <path d="M-60 230 C120 70 230 130 150 300 S40 570 210 670 M1300 -50 C1150 140 1430 260 1320 440 S1450 740 1510 640"/>
+    <circle cx="110" cy="190" r="62"/><circle cx="1350" cy="720" r="140"/>
+    <path d="M85 800h26m-13-13v26 M1240 160h26m-13-13v26 M1320 480h18m-9-9v18"/>
+  </svg>
+</div>
+
+<header class="bar">
+ <div class="mode-control">
+  <button class="mode-toggle" type="button" aria-expanded="false" aria-controls="mode-options" aria-label="Ganti mode bahasa">
+    <span id="active-mode-label">Goys</span><span class="mode-chevron" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none"><path d="m4 6 4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+  </button>
+  <div class="modes" id="mode-options" role="group" aria-label="Mode bahasa">
+    <button data-mode="goys">Goys</button><button data-mode="yoga">Yoga Raditya</button><button data-mode="en">Yoga (EN)</button>
+  </div>
+ </div>
+</header>
+<nav class="dots" aria-hidden="true"></nav>
+
+<main>
+  <!-- 0 · kenalan: kantong (resleting) -->
+  <section id="hero" class="sec" data-sec="hero"><div class="pin"><div class="col" data-scroll-panel>
+    <p class="kicker rv" data-k="hero.k"></p>
+    <h1 class="rv" data-k="hero.t"></h1>
+    <p class="rv lead" data-k="hero.b"></p>
+    <p class="hint rv"><span id="hint"></span></p>
+  </div></div></section>
+
+  <!-- 1 · pilih mode: TANPA kantong -->
+  <section id="mode" class="sec" data-sec="mode"><div class="pin center"><div class="col wide" data-scroll-panel>
+    <p class="kicker rv" data-k="mode.k"></p>
+    <h2 class="rv" data-k="mode.t"></h2>
+    <p class="rv lead" data-k="mode.b"></p>
+    <div class="mcards rv">
+      <button data-mode="goys"><span class="nm">Goys</span><span class="who" data-k="mode.cards.goys.who"></span><span class="smp" data-k="mode.cards.goys.sample"></span></button>
+      <button data-mode="yoga"><span class="nm">Yoga Raditya</span><span class="who" data-k="mode.cards.yoga.who"></span><span class="smp" data-k="mode.cards.yoga.sample"></span></button>
+      <button data-mode="en"><span class="nm">Yoga (EN)</span><span class="who" data-k="mode.cards.en.who"></span><span class="smp" data-k="mode.cards.en.sample"></span></button>
+    </div>
+    <p class="note rv" data-k="mode.note"></p>
+  </div></div></section>
+
+  <!-- 2 · kenapa kantong -->
+  <section id="why" class="sec" data-sec="why"><div class="pin right"><div class="col" data-scroll-panel>
+    <p class="kicker rv" data-k="why.k"></p>
+    <h2 class="rv" data-k="why.t"></h2>
+    <p class="rv lead" data-k="why.b"></p>
+    <p class="rv lead strong" data-k="why.b2"></p>
+    <ol class="needs rv" id="needs"></ol>
+  </div></div></section>
+
+  <!-- 3 · kuliah: laptop ngebul -->
+  <section id="uni" class="sec" data-sec="uni"><div class="pin"><div class="col" data-scroll-panel>
+    <p class="kicker rv" data-k="uni.k"></p>
+    <h2 class="rv" data-k="uni.t"></h2>
+    <p class="rv lead" data-k="uni.b"></p>
+    <div class="card rv m-hide"><div class="term-h"><i></i><i></i><i></i><span>~/tugas-besar</span></div><pre class="term" id="term"></pre></div>
+    <div class="card jobs rv"><p class="ct" data-k="uni.jobs.t"></p><div id="jobs"></div><p class="foot" data-k="uni.jobs.foot"></p></div>
+  </div></div></section>
+
+  <!-- 4 · BTN: rambu, terus kamera zoom ke QA, belok kanan, turun -->
+  <section id="btn" class="sec" data-sec="btn"><div class="pin right"><div class="col" id="btncol" data-scroll-panel>
+    <p class="kicker rv" data-k="btn.k"></p>
+    <h2 class="rv" data-k="btn.t"></h2>
+    <p class="rv lead" data-k="btn.b"></p>
+    <div class="card chart rv m-hide">
+      <p class="ct" data-k="btn.chart.t"></p>
+      <div class="axis"><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span><span>22</span><span>23</span><span>00</span><span>01</span><span>02</span></div>
+      <div class="crow"><b>QA</b><div class="track"><div class="bar-f qa"><em data-k="btn.chart.qa"></em></div></div></div>
+      <div class="crow"><b>DEV</b><div class="track"><div class="bar-f dev"><em data-k="btn.chart.dev"></em></div></div></div>
+      <p class="foot" data-k="btn.chart.foot"></p>
+    </div>
+    <div class="stat rv"><b>100+</b><span data-k="btn.stat"></span></div>
+  </div></div></section>
+
+  <!-- 5 · WISEWIRES: karakter injek batu, lompat -->
+  <section id="ww" class="sec" data-sec="ww"><div class="pin"><div class="col" data-scroll-panel>
+    <p class="kicker rv" data-k="ww.k"></p>
+    <h2 class="rv" data-k="ww.t"></h2>
+    <p class="rv lead" data-k="ww.b"></p>
+    <div class="ww-row rv">
+      <div class="card clocks">
+        <div class="clk"><div><small data-k="ww.me"></small><span class="t" id="clkMe">23<i>:</i>00</span></div><span class="s" data-k="ww.meS"></span></div>
+        <div class="clk"><div><small data-k="ww.team"></small><span class="t" id="clkTeam">08<i>:</i>00</span></div><span class="s" data-k="ww.teamS"></span></div>
+      </div>
+      <div class="card eng m-hide"><p class="ct" data-k="ww.eng.t"></p><div id="eng"></div></div>
+    </div>
+  </div></div></section>
+
+  <!-- 6 · BRI: karakter pake topeng -->
+  <section id="bri" class="sec" data-sec="bri"><div class="pin right"><div class="col" data-scroll-panel>
+    <p class="kicker rv" data-k="bri.k"></p>
+    <h2 class="rv" data-k="bri.t"></h2>
+    <p class="rv lead" data-k="bri.b"></p>
+    <div class="card memo rv">
+      <div class="memo-h"><b>MEMO</b><span data-k="bri.memo.h"></span></div>
+      <div class="bub old"><small data-k="bri.memo.dulu"></small><span data-k="bri.memo.old"></span></div>
+      <div class="bub new"><small data-k="bri.memo.skrg"></small><span data-k="bri.memo.new"></span></div>
+    </div>
+    <div class="flow rv m-hide"><span data-k="bri.flow.0"></span><i></i><span data-k="bri.flow.1"></span><i></i><span data-k="bri.flow.2"></span><i></i><span class="me" data-k="bri.flow.3"></span></div>
+  </div></div></section>
+
+  <!-- 7 · skill: karakter angkat kantong, harus scroll cepet, meledak (kekunci), popup kesimpulan -->
+  <section id="skill" class="sec short" data-sec="skill"><div class="pin top">
+    <p class="kicker sk-k" data-k="skill.k"></p>
+    <p class="intro" data-k="skill.intro"></p>
+    <div class="flip"><span class="cat"></span><span class="name"></span></div>
+    <div class="meta"><span class="cnt"></span><span data-k="skill.gauge"></span><div class="gt"><div class="gf"></div></div><b class="gp"></b></div>
+    <p class="speed"><span class="sp-txt"></span><span class="sp-bar"><i></i></span></p>
+    <p class="pre" data-k="skill.pre"></p>
+  </div></section>
+
+  <!-- A proper story chapter, never a timed popup that can be missed. -->
+  <section id="about" class="sec short" data-sec="about"><div class="pin center">
+    <div class="summary on" role="region" aria-labelledby="summary-title" data-scroll-panel>
+      <p class="kicker" data-k="skill.sum.k"></p>
+      <h2 id="summary-title"><span data-k="skill.sum.think"></span> <span class="sum-highlight" data-k="skill.sum.make"></span></h2>
+      <p class="lead" data-k="skill.sum.b"></p>
+      <div class="sum-tags"></div>
+      <p class="projects-k" data-k="skill.sum.projectsTitle"></p>
+      <div class="side-projects" id="side-projects"></div>
+      <p class="sum-next" data-k="skill.sum.next"></p>
+    </div>
+  </div></section>
+
+  <!-- 8 · kontak -->
+  <section id="contact" class="sec short" data-sec="contact"><div class="pin center"><div class="col wide" data-scroll-panel>
+    <p class="kicker rv" data-k="contact.k"></p>
+    <h2 class="rv" data-k="contact.t"></h2>
+    <p class="rv lead" data-k="contact.b"></p>
+    <div class="cta rv">
+      <a href="mailto:yogaradit123@gmail.com">yogaradit123@gmail.com</a>
+      <a class="ghost" href="https://www.linkedin.com/in/yogardtyaaa" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="ghost" href="https://github.com/rdtyaaa" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div></div></section>
+</main>
+<div class="tag" id="tag"></div>
+
+<div class="loading" id="loading"></div>
+<script type="importmap">{"imports":{"three":"https://unpkg.com/three@0.160.0/build/three.module.js","three/addons/":"https://unpkg.com/three@0.160.0/examples/jsm/"}}</script>
+<script type="module" src="js/main.js?v=r17"></script>
+</body>
+</html>
